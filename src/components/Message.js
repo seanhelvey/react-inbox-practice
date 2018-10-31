@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-let Message = (props) => {
+let Message = ({message, messageRead}) => {
     return (
-        <div class="row message unread">
+        <div className={message.read ? "row message read" : "row message unread"} onClick={() => messageRead(message.id)}>
         <div class="col-xs-1">
             <div class="row">
             <div class="col-xs-2">
@@ -16,7 +16,7 @@ let Message = (props) => {
         </div>
         <div class="col-xs-11">
             <a href="#">
-                {props.message.body}
+                {message.body}
             </a>
         </div>
         </div>

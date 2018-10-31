@@ -3,10 +3,10 @@ import '../App.css';
 
 import Message from './Message.js'
 
-let Messages = ({messages}) => {
+let Messages = ({messages, messageRead}) => {
     return (
         messages.map(message => {
-            return <Message message={message}></Message>
+            return <Message message={message} messageRead={messageRead}></Message>
         })
     )
 } 
