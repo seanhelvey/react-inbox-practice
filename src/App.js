@@ -6,12 +6,24 @@ import Messages from './components/Messages.js'
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       allSelected: true,
-      messages: [1,2,3]
+      messages: [1,2,3,4]
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8082/api/messages')
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        this.setState({
+          messages: myJson
+        })
+      });
   }
 
   render() {
